@@ -18,7 +18,7 @@ def ej1():
     # el diccionario vacio debe llamarse "stock"
     
     # stock = ....
-
+    
     # Luego de crear el diccionario completelo
     # con el siguiente stock:
     # tornillos = 100
@@ -32,7 +32,11 @@ def ej1():
     # Una vez armado el diccionario imprimirlo en pantalla con print
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
-
+    stock = {}
+    stock['tornillos'] = 100
+    stock['tuercas'] = 150
+    stock['arandelas'] = 300
+    print('Stock: ', stock)
 
 def ej2():
     print('Ejercicio con diccionarios 2º')
@@ -66,6 +70,28 @@ def ej2():
     # imprimir en pantalla con print el diccionario con el stock final
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+    while True:
+        print('Ingrese el producto que desee agregar al stock:\n',
+            '"FIN" para terminar\n')
+        menu = input()
+        if menu == 'tornillos' or menu == 'Tornillos' or menu == 'TORNILLOS':
+            cant_prod = int(input('Ingrese la cantidad de stock a agregar: '))
+            strock['tornillos'] += cant_prod
+            print(f'Stock de {menu}: ', strock['tornillos'], '\n')
+        elif menu == 'tuercas' or menu == 'Tuercas' or menu == 'TUERCAS':
+            cant_prod = int(input('Ingrese la cantidad de stock a agregar: '))
+            strock['tuercas'] += cant_prod
+            print(f'Stock de {menu}: ', strock['tuercas'], '\n')
+        elif menu == 'arandelas' or menu == 'Arandelas' or menu == 'ARANDELAS':
+            cant_prod = int(input('Ingrese la cantidad de stock a agregar: '))
+            strock['arandelas'] += cant_prod
+            print(f'Stock de {menu}: ', strock['arandelas'], '\n')
+        elif menu == 'FIN' or menu == 'Fin' or menu == 'fin':
+            print('¡Hasta luego!')
+            break
+        elif menu not in strock:
+            print(f'{menu} no existe, por favor vuelva a intentar.')
+            continue
 
 
 if __name__ == '__main__':

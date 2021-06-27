@@ -27,8 +27,19 @@ def ej3():
     # para cumplir con el enunciado del ejercicio
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+    try:
+        csvfile = open(archivo, 'r')
+        stock = list(csv.DictReader(csvfile))
+        csvfile.close()
+    except:
+        print(f'Error al abrir el archivo {archivo}.')
     
-
+    columna = 'tornillos'
+    cant_tornillos = 0
+    for i in range(len(stock)):
+        cant_tornillos += int(stock[i][columna])
+    print(f'Cantidad total de {columna}: {cant_tornillos}')
+        
 
 def ej4():
     print('Ejercicios con archivos CSV 2º')
@@ -47,6 +58,29 @@ def ej4():
     # utilizando "try except", tema que se verá la clase que viene.
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+
+    try:
+        csvfile2 = open(archivo, 'r')
+        propiedades = list(csv.DictReader(csvfile2))
+        csvfile2.close()
+    except:
+        print(f'Error al abrir el archivo {archivo}.')
+    columna = 'ambientes'
+    columna2 = 'titulo'
+    dos_ambientes = 0
+    tres_ambientes = 0
+    for i in range(len(propiedades)):
+        try:
+            if int(propiedades[i][columna]) == 2:
+                dos_ambientes += 1
+            elif int(propiedades[i][columna]) == 3:
+                tres_ambientes += 1
+        except:
+            print(f'Error en {columna} de la propiedad {propiedades[i][columna2]}.')
+    print('Cantidad de propiedades de 2 ambientes: ', dos_ambientes)
+    print('Cantidad de propiedades de 3 ambientes: ', tres_ambientes)
+        
+
 
 
 if __name__ == '__main__':
